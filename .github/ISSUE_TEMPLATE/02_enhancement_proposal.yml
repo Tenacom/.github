@@ -7,7 +7,7 @@ body:
       value: |
         We welcome enhancement proposals!
 
-        This template will help us gather the information we need to discuss your proposal and possibile implementation.
+        This form will help us gather the information we need to discuss your proposal and possibile implementation.
   - type: input
     attributes:
       label: Reference version
@@ -21,24 +21,26 @@ body:
       description: |
         Please describe the purpose and value of the new functionality:
 
-          * what problem does it solve?
-          * which type(s) of projects does it affect?
-          * is it specific to some configuration or toolchain?
+        * what problem does it solve?
+        * which type(s) of projects does it affect?
+        * is it specific to some configuration or toolchain?
 
         Include as many code snippets, CI log fragments, screenshots, etc. you deem useful to illustrate your point.
 
         For texts spanning more than a few lines, please [create a gist](https://gist.github.com/) and provide a link to it.
 
-        Don't forget to use syntax highlighting for Markdown code blocks. For example:
+        Don't forget to use syntax highlighting for Markdown fenced code blocks. For example, if you write this:
 
-        ```XML
-        <Project>
+        ````
+        ```C#
+        var thisCode = isSyntaxHighlighted;
+        ```
+        ````
 
-          <PropertyGroup>
-            <IsNicelyColored Condition="'$(HasXMLAfterTheThreeBackticks)' == 'true'">true</IsNicelyColored>
-          <PropertyGroup>
+        it will appear like this:
 
-        </Project>
+        ```C#
+        var thisCode = isSyntaxHighlighted;
         ```
 
         (GitHub's syntax highlighting supports more languages that would be practical to list here.
@@ -87,6 +89,6 @@ body:
   - type: textarea
     attributes:
       label: Additional information
-      description: Please add any additional information you deem useful.
+      description: Please add any additional information you deem useful. This section is optional.
     validations:
       required: false
