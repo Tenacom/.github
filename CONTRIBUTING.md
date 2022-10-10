@@ -185,13 +185,13 @@ Some quick "do"s and "don't"s about stuff that code analyzers won't catch (revie
 
 #### Source files and their names
 
-- Put exactly one type in each file. Yes, even enums. Yes, even delegates. This makes looking for a type very easy, even outside an IDE.
+- Put exactly one type in each file. Yes, even enums. Yes, even delegates. This makes looking for a type very easy, even when not using an IDE, e.g. when browsing a repository on GitHub.
 - File name must be the name of the first (and only) contained type.
   - For generic types, append a grave accent `` ` `` followed by the type's arity (the number of type parameters). Example: `MagicalConverter<TInput, TOutput>` has two type parameters, hence the file name will be ``MagicalConverter`2.cs``.
   - For nested types, use the name of the containing type, followed by a dot `.` and the name of the nested type. Example: `struct MyClass.PrivateData` goes in `MyClass.PrivateData.cs`.
   - Extension methods should be grouped in extension classes (static classes that only contain extension methods) whose name is the name of the type being extended, followed by `Extensions`. For example: file `FooExtensions.cs` contains the `FooExtensions` static class, whose methods are extension methods for objects of type `Foo`.
   - Names of extensions classes for interfaces must not start with `I`. For example: file `FooExtensions.cs` contains the `FooExtensions` static class, whose methods are extension methods for objects that implement interface `IFoo`.
-- When you split a type across multiple files (`partial` type), always have a file named after the type, where you put the XML documentation for the type and the full type declaration. In other files, group members either by name (for example if there are a dozen overloads of the same method `FooExtensions.Bar`, it makes sense to put them in their own file) or by topic. For example, let's pretend we wrote an extension class for `DateTime`, with methods like `GetNextMonday()` (gets the Monday after a `DateTime`) and `AddHalfSeconds` (adds _half_ the specified number of seconds to a `DateTime`):
+- When you split a type across multiple files (`partial` type), always have a file named after the type, where you put the XML documentation for the type, the full type declaration, and nothing else. In other files, group members either by name (for example if there are a dozen overloads of the same method `FooExtensions.Bar`, it makes sense to put them in their own file) or by topic. For example, let's pretend we wrote an extension class for `DateTime`, with methods like `GetNextMonday()` (gets the Monday after a `DateTime`) and `AddHalfSeconds` (adds _half_ the specified number of seconds to a `DateTime`):
 
   ```C#
   // DateTimeExtensions.cs
@@ -231,6 +231,8 @@ Some quick "do"s and "don't"s about stuff that code analyzers won't catch (revie
     // Methods AddHalfSeconds(int), AddHalfSeconds(long), AddHalfSeconds(double) go here.
   }
   ```
+  
+  If some (generally no more than a handful) members of a partial type do not fit in any particular category, you can put them in the "main" file (where the full type declaration is).
 
 ### XML documentation style guide
 
