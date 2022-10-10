@@ -75,7 +75,7 @@ To quote [GitHub's Terms of Service, section D-3](https://docs.github.com/en/sit
 In order to accept a submission containing code and/or other content that is not the original work of the contributor (for example, a small utility method copied from a third-party open-source library to avoid taking an extra dependency), we require that:
 
 - the original author is identified (for example by putting a link to the original content in a comment), and
-- the `THIRD-PARTY-NOTICES` file in the repository root is updated with the relevant attribution, if so required by the license of the original content (although attribution is never forbidden, so it is a good idea to add it as a principle.)
+- the `THIRD-PARTY-NOTICES` file in the repository root is updated with the relevant attribution, if so required by the license of the original content (although attribution is never forbidden, so it is a good idea to add it as a principle).
 
 #### Author identification
 
