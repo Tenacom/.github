@@ -28,6 +28,11 @@ The following is a set of guidelines for contributing to any project hosted in t
   - [C# code style guide](#c-code-style-guide)
     - [Advanced topics](#advanced-topics)
     - [Source files and their names](#source-files-and-their-names)
+  - [Comment style guide](#comment-style-guide)
+    - [Why write a comment (and why not)](#why-write-a-comment-and-why-not)
+    - [When to write a comment](#when-to-write-a-comment)
+    - [Where to write a comment](#where-to-write-a-comment)
+    - [How to write a comment](#how-to-write-a-comment)
   - [XML documentation style guide](#xml-documentation-style-guide)
   - [Unit test style guide](#unit-test-style-guide)
   - [XML (project files, MSBuild files) style guide](#xml-project-files-msbuild-files-style-guide)
@@ -181,7 +186,6 @@ Some quick "do"s and "don't"s about stuff that code analyzers won't catch (revie
   ```
 
 - DO only use the English language for identifier names. Prefer American spelling, e.g. `color` instead of `colour` ([more examples of spelling differences](https://www.oxfordinternationalenglish.com/differences-in-british-and-american-spelling/)).
-- DO only use the English language in comments. Please write in [plain English](http://www.plainenglish.co.uk/how-to-write-in-plain-english.html) as much as you can: we are not all native speakers.
 
 #### Source files and their names
 
@@ -233,6 +237,62 @@ Some quick "do"s and "don't"s about stuff that code analyzers won't catch (revie
   ```
   
   If some (generally no more than a handful) members of a partial type do not fit in any particular category, you can put them in the "main" file (where the full type declaration is).
+
+### Comment style guide
+
+_We're talking about "normal" comments here. You can find a style guide for [XML documentation](#xml-documentation-style-guide) below._
+
+There are lots of guides on how to write comments, for example [this excellent article](https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments) on StackOverflow's blog.
+
+Some quick "do"s and "don't"s follow.
+
+#### Why write a comment (and why not)
+
+- DO write a comment to explain _apparently_ redundant, or otherwise _apparently_ wrong or dangerous code. For example, the comment below explains the presence of the [null-forgiving operator](https://learn.microsoft.com/dotnet/csharp/language-reference/operators/null-forgiving), which could be otherwise seen with justified suspicion:
+
+  ```csharp
+  // GetEntryAssembly never returns null in a .NET application.
+  // https://learn.microsoft.com/dotnet/api/system.reflection.assembly.getentryassembly#remarks
+  var entryAssembly = Assembly.GetEntryAssembly()!;
+  ```
+
+- DO write a comment to justify **every single time you disable a warning**. For example, the code below would trigger [Code Analysis warning CA2012](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca2012) because it does not directly await the `ValueTask` returned by `DisposeAsync`; however, all it does with it is synchronously wait for its result. Since the `ValueTask` is consumed only once, we can safely disable the warning:
+
+  ```csharp
+  #pragma warning disable CA2012 // Use ValueTasks correctly - This is correct usage because we consume the ValueTask only once.
+      public void Dispose() => DisposeAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+  #pragma warning restore CA2012 // Use ValueTasks correctly
+  ```
+
+- DO write a comment with a link to the original source of any code you copy and adapt (because you never, ever just copy and paste, right? :angel:)
+  - Copying code from StackOverflow is not bad _if_ you understand what you do and, if necessary, adapt the code to the specific context in which you copy it. However, a link to the answer containing the original code will be of great help to understand your motivation in including it.
+  - Copying code from other projects may be justified: for example you just need a 4-line helper method from a third-party library and do not want to introduce an additional dependency. In this case, check that the original code's license allows for partial redistribution under our project's license (if in doubt, ask a project maintainer). You must also add a proper attribution in the THIRD-PARTY-NOTICES file in the repository root.
+- DO write a comment with a link to relevant documentation, industry standards, a blog article, a StackOverflow answer, _whatever_ explains some non-trivial piece of code. Also add a short explanation in your own words.
+- DO NOT write a comment to state the obvious. `a = 10; // Set a to 10` comes to mind.
+- DO NOT write a comment to justify unclear code. Refactor until it _is_ clear.
+- DO NOT write a comment to explain the name of a type, member, or variable. Use a proper name instead, even if it means more typing. No amount of comments can justify the sloppiness of calling a variable `scrdim` instead of `screenDimensions`... and don't get me started about `tmp` and `temp`!
+- DO NOT write a comment to mark the closing of a block, like this: `} // foreach`. If you get lost in your code without it, it's a sign that your code is too complex and you need to refactor it.
+- DO NOT write a comment just to be smart or to vent out frustration. Take a walk instead. Believe me, every possible "smart" _and_ funny comment had been already written at the end of last century.
+
+#### When to write a comment
+
+You should usually write comments while you write the code you want to comment. The only exception is when a comment has to explain some complicated code. In this case, write a short draft of the comment, take a walk, then review _both_ your code and your comment. You might be surprised.
+
+#### Where to write a comment
+
+Avoid, if possible, writing comments at the end of code lines: write them on their own lines instead, just above the code line you are commenting.
+
+A possible exception is for initialization of a complicated data structure, where having one field per line with its own comment may help to keep the code compact and more readable.
+
+#### How to write a comment
+
+Use only the English language in comments. Write in [plain English](http://www.plainenglish.co.uk/how-to-write-in-plain-english.html) as much as you can: we are not all native speakers.
+
+A good comment, like a good commit message, tells the "what" and the "why" (unless the latter is blatantly obvious - not just to you, to anyone).
+
+For the "what" (explaining what the code does) use the imperative mood and the present tense: "Resize to half the screen width", not "resizes", nor "resizing".
+
+For the "why" (the motivation behind the code) remember that we are a team: "Resize gizmo so _we_ can fit it under the toolbar", "Log only the exceptions _we_ care about", etc.
 
 ### XML documentation style guide
 
