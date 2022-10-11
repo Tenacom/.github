@@ -18,7 +18,7 @@ body:
       label: Regression?
       multiple: false
       options:
-        - NO - This is a new bug
+        - NO - This bug also affected the previous version
         - YES - A previous version was not affected
     validations:
       required: true
