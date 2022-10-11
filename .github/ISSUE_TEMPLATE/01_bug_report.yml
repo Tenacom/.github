@@ -15,11 +15,12 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: Regression?
+      label: Is this a regression?
       multiple: false
       options:
         - NO - This bug also affected the previous version
         - YES - A previous version was not affected
+        - MAYBE - I don't know if any previous version had the same problem
     validations:
       required: true
   - type: textarea
