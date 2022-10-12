@@ -1,0 +1,53 @@
+name: Request for additional documentation
+description: Ask for more!
+labels: [ 'area:docs' ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to submit your proposal!
+
+        Let's talk about the article you wish added. (If you want to submit more than one proposal, please open more issues.)
+  - type: textarea
+    attributes:
+      label: Subject
+      description: What would be the subject of the article? Use just a few words here - as if it was the article's title.
+      placeholder: The new extension methods in Brilliant.Stuff version 2
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Motivation
+      description: Why is this article needed?
+      placeholder: No single API doc gives the big picture. We need an article with a more organic approach.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Abstract
+      description: Write a short abstract of the article (one paragraph is OK) explaining which topics it should cover.
+      placeholder: Brilliant.Stuff v2 contains few new types but quite a lot new extension methods. This article explains why they were added and how they make your code leaner and cleaner. Real-world code examples included.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Outline
+      description: Create an outline for the article, to give a good start to anyone writing it.
+      placeholder: |
+        - Overview of the new extension methods
+          - Why extensions?
+          - The problem(s) they solve
+        - When and why you need to use them
+          - Cleaner code
+          - Impact on performance
+        - Typical use cases
+          - Services
+          - UI
+          - ...
+        - Code examples
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        Thanks again for your time. We will help you review and refine your proposal if necessary.
