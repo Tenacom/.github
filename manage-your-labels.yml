@@ -1,0 +1,30 @@
+# https://github.com/actions-automation/manage-your-labels/tree/main/input#readme
+LABEL_GROUPS:
+  DEFAULT:
+    'area:code': { color: 'cccccc', description: '[issue/PR] affects project code (excluding tests).' }
+    'area:style': { color: 'cccccc', description: '[issue/PR] affects editor / code analysis settings.' }
+    'area:build': { color: 'cccccc', description: '[issue/PR] affects project files and/or build settings.' }
+    'area:deps': { color: 'cccccc', description: '[issue/PR] adds, updates, or removes dependencies.' }
+    'area:docs': { color: 'cccccc', description: '[issue/PR] affects documentation (excluding XML documentation that is part of source code).' }
+    'area:repo': { color: 'cccccc', description: '[issue/PR] affects repository settings, e.g. issue templates.' }
+    'area:ci': { color: 'cccccc', description: '[issue/PR] affects GitHub Actions.' }
+    'area:test': { color: 'cccccc', description: '[issue/PR] adds, updates, or otherwise affects tests.' }
+
+    'bug': { color: 'cc0000', description: '[issue/PR] reports / solves a bug.' }
+    'enhancement': { color: '3366cc', description: '[issue/PR] requests / implements new or improved functionality.' }
+    'refactor': { color: '006699', description: '[issue/PR] requests / implements a refactor of existing code without affecting functionality.' }
+    'perf': { color: '006699', description: '[issue/PR] requests / implements a performance improvement without affecting functionality.' }
+    'style': { color: 'ccffcc', description: '[issue/PR] requests / implements code style changes without affecting functionality.' }
+
+    'security': { color: 'cc6666', description: '[issue/PR] has security implications.' }
+    'breaking': { color: 'ffcc00', description: '[issue/PR] requires / contains breaking changes.' }
+    'help-wanted': { color: 'cc3366', description: '[issue/PR] needs help to solve / finalize.' }
+    'easy': { color: 'ccccff', description: '[issue] is easy to grasp, a good pick for new collaborators.' }
+    'ignore-for-release': { color: 'ccccff', description: '[PR] shall not be listed in release notes.' }
+
+    'closed-as:invalid': { color: '666666', description: '[issue] caused by user or third-party code, or otherwise not a valid issue.' }
+    'closed-as:duplicate': { color: '666666', description: '[issue] is a duplicate of another issue.' }
+    'closed-as:by-design': { color: '666666', description: '[issue] is about an intended behavior.' }
+    'closed-as:wontfix': { color: '666666', description: '[issue] is valid, but will not be acted upon (see comments).' }
+
+REPOS: { } # Only apply the DEFAULT group everywhere

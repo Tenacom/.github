@@ -1,0 +1,17 @@
+name: Define issue labels across organization
+
+on:
+  schedule:
+    - cron: "*/15 * * * *" # Every 15 minutes
+  workflow_dispatch:
+
+jobs:
+  define-labels:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-automation/manage-your-labels@0.1.0
