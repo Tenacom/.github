@@ -5,7 +5,8 @@ on:
   schedule:
     # Runs on 0:00 UTC every day
     - cron: "0 0 * * *"
-
+  workflow_dispatch:
+    inputs: {}
 jobs:
   keep-alive:
     runs-on: ubuntu-latest
