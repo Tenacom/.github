@@ -15,3 +15,5 @@ jobs:
 
       # For options, see https://github.com/marketplace/actions/keepalive-workflow#for-github-action
       - uses: gautamkrishnar/keepalive-workflow@v1
+        with:
+          time_elapsed: 0
