@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v4
 
       # For options, see https://github.com/marketplace/actions/keepalive-workflow#for-github-action
-      - uses: gautamkrishnar/keepalive-workflow@v1
+      - uses: gautamkrishnar/keepalive-workflow@v2
