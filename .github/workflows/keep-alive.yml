@@ -11,7 +11,7 @@ jobs:
   keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # For options, see https://github.com/marketplace/actions/keepalive-workflow#for-github-action
       - uses: gautamkrishnar/keepalive-workflow@v2
