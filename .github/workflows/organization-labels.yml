@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: read
     env:
-      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      BOT_TOKEN: ${{ secrets.DEFINE_LABELS_TOKEN }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions-automation/manage-your-labels@0.1.0
