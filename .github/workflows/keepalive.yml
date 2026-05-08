@@ -1,0 +1,40 @@
+name: Keep GitHub Actions alive
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Every day at midnight
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Keepalive commit (only if no recent activity)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Skip if there was any commit in last 40 days
+          last_commit_ts="$(git log -1 --format=%ct)"
+          now_ts="$(date +%s)"
+          age_days="$(( (now_ts - last_commit_ts) / 86400 ))"
+
+          if [ "$age_days" -lt 40 ]; then
+            echo "Recent activity detected (${age_days}d ago). Skipping keepalive commit."
+            exit 0
+          fi
+
+          mkdir -p .github
+          echo "keepalive: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > .github/keepalive
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/keepalive
+          git commit -m "chore: keepalive [skip ci]"
+          git push
