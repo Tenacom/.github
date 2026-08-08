@@ -77,5 +77,5 @@ This pull request introduces breaking changes:
   - [ ] I have added / modified XML documentation according to changes in code
   - [ ] I have checked that all the links I added or modified in XML documentation point to their intended destination
 - **For documentation changes (`docs` directory) only:**
-  - [ ] I have built and tested documentation locally
+  - [ ] I have built and tested documentation locally <!-- Check this only if an actual "documentation build" process is involved, e.g., using DocFX. -->
   - [ ] I have checked that all the links I added or modified point to their intended destination
