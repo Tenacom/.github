@@ -11,7 +11,7 @@
   // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
   "editor.detectIndentation": false,
   // Controls if we seed the search string in Find Widget from editor selection
-  "editor.find.seedSearchStringFromSelection": true,
+  "editor.find.seedSearchStringFromSelection": "always",
   // Controls if Find in Selection flag is turned on when multiple characters or lines of text are selected in the editor
   "editor.find.autoFindInSelection": "multiline",
   // Controls how lines should wrap. Can be:
@@ -95,7 +95,7 @@
   // Automatically open explorer view on the end of a debug session
   "debug.openExplorerOnEnd": false,
   // Show variable values inline in editor while debugging
-  "debug.inlineValues": false,
+  "debug.inlineValues": "auto",
   // Controls if the floating debug action bar should be hidden
   "debug.hideActionBar": false,
   // Controls behavior of the internal debug console.
@@ -148,7 +148,11 @@
   // Configure editor settings to be overridden for [markdown] language.
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
     "editor.trimAutoWhitespace": false
   },
   // Configure editor settings to be overridden for [xml] language.
@@ -174,8 +178,8 @@
   "git.confirmSync": true,
   // Controls the git badge counter. `all` counts all changes. `tracked` counts only the tracked changes. `off` turns it off.
   "git.countBadge": "all",
-  // Controls what type of branches are listed when running `Checkout to...`. `all` shows all refs, `local` shows only the local branchs, `tags` shows only tags and `remote` shows only remote branches.
-  "git.checkoutType": "all",
+  // Controls what type of branches are listed when running `Checkout to...`. `local` shows only the local branchs, `tags` shows only tags and `remote` shows only remote branches.
+  "git.checkoutType": ["local", "remote", "tags"],
   // Ignores the legacy Git warning
   "git.ignoreLegacyWarning": false,
   // Ignores the warning when there are too many changes in a repository
