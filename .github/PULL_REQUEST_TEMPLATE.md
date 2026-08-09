@@ -1,3 +1,18 @@
+### Checklist of related issues / discussions
+
+<!--
+  All non-trivial changes MUST refer to at least one issue or discussion.
+
+  Put an `x` in the boxes that apply.
+
+  List issue / discussion numbers prefixed by # and separated by space (no punctuation), like this:
+    - [x] Fixes #123 #456
+-->
+
+- [ ] Closes #
+- [ ] Partially closes #
+- [ ] Related discussion(s): #
+
 ## Proposed changes
 
 <!--
@@ -20,20 +35,15 @@
   Markdown cheatsheet  : https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf
 -->
 
-### Checklist of related issues / discussions
+## Additional changes
 
 <!--
-  All non-trivial changes MUST refer to at least one issue or discussion.
-
-  Put an `x` in the boxes that apply.
-
-  List issue / discussion numbers prefixed by # and separated by space (no punctuation), like this:
-    - [x] Fixes #123 #456
+  Changes not requested by the issue should be listed here. Some examples:
+    - Fixes to bugs found while working on the PR.
+    - Refactors needed to soklve the issue(s) but not foreseen in the original plan.
+    - Typo/wording corrections, small code style fixes...
+      (at the least, list the touched files and the type(s) of change in each)
 -->
-
-- [ ] Fixes #
-- [ ] Partially fixes #
-- [ ] Related discussion(s): #
 
 ## Types of changes
 
