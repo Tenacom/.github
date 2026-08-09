@@ -11,7 +11,10 @@ body:
   - type: input
     attributes:
       label: Reference version
-      description: Which version of the project do you currently use?
+      description: |
+        Which version of the project do you currently use?
+
+        (If reporting during development, please specify the commit hash and last released version.)
       placeholder: n.n.n
     validations:
       required: true

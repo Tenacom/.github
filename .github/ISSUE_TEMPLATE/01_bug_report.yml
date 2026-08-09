@@ -9,7 +9,10 @@ body:
   - type: input
     attributes:
       label: Affected version(s)
-      description: On which version of the project does the lamented behavior occur?
+      description: |
+        On which version of the project does the lamented behavior occur?
+
+        (If reporting during development, please specify the commit hash and last released version.)
       placeholder: n.n.n
     validations:
       required: true
