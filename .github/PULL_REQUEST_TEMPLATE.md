@@ -56,9 +56,9 @@ This pull request introduces the following types of changes:
 - [ ] Test addition / update (no changes to non-test code)
 - [ ] Refactor (no changes in public API syntax or semantics)
 - [ ] Performance improvement (no changes in public API syntax or semantics)
-- [ ] Documentation (`docs` directory) update
+- [ ] Documentation update (not including changelog)
 - [ ] Dependency addition / update
-- [ ] Changes to the build scripts
+- [ ] Changes to  toolchain configuration
 - [ ] Changes to CI (workflows, bot / app configurations)
 - [ ] Changes to repository files (`.gitattributes`, `.gitignore`)
 - [ ] Other
@@ -86,6 +86,6 @@ This pull request introduces breaking changes:
   - [ ] I have added tests that prove my feature works / my fix is effective
   - [ ] I have added / modified XML documentation according to changes in code
   - [ ] I have checked that all the links I added or modified in XML documentation point to their intended destination
-- **For documentation changes (`docs` directory) only:**
-  - [ ] I have built and tested documentation locally <!-- Check this only if an actual "documentation build" process is involved, e.g., using DocFX. -->
+- **For documentation changes only:**
+  - [ ] I have checked and proofread documentation locally
   - [ ] I have checked that all the links I added or modified point to their intended destination
