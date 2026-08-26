@@ -5,12 +5,18 @@
 
   Put an `x` in the boxes that apply.
 
-  List issue / discussion numbers prefixed by # and separated by space (no punctuation), like this:
-    - [x] Fixes #123 #456
+  List issue numbers prefixed by #, one issue per line. "Part of" means "Addresses but does not close".
+    - [x] Closes #123
+    - [x] Closes #456
+    - [x] Part of #125
+    - [x] Part of #937
+
+  Discussion numbers, prefixed by #, can be on the same line,  separated by space (no punctuation):
+    - [ ] Related discussion(s): #154 #76 #323
 -->
 
 - [ ] Closes #
-- [ ] Partially closes #
+- [ ] Part of #
 - [ ] Related discussion(s): #
 
 ## Proposed changes
